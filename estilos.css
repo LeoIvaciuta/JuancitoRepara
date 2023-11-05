@@ -1,0 +1,223 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: aquamarine;
+}
+
+.portada{
+    width: 100%; /* Establece el ancho al 65% del contenedor padre */
+    height: 400px;
+    padding-top: 45px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.imgfondo{
+    width: 100%;
+    height: 100%; 
+    z-index: 1;
+}
+
+.portada h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 1;
+}
+.portada-redes{
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.portada-redes .portada-box{
+    justify-content: center;   
+}
+.portada-redes .portada-box .redsocial a{
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    justify-content: center;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.portada-redes .portada-box h2{
+    text-align: center;
+    padding-bottom: 1px;
+    color: white;
+    font-size: 21px;
+}
+.piepg .grupo1 .box .redsocial a:hover{
+    color: #684949;
+}
+header{
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between; /*para que se separen uno a cada lado la img y el nav*/
+    padding: 1rem;
+    background-color: gray;
+}
+.nav-list li a{
+    text-decoration: none;
+    color: black;
+}
+.nav-list{
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+.logo{
+    height: 40px;
+    width: 100px;
+    margin-left: 5px;
+}
+.abrir-menu, .cerrar-menu{
+    display: none;
+}
+.piepg, .grupo1, .grupo2{
+    z-index: 1;
+}
+.piepg{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+.piepg .grupo1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto; /*para que este centrado el grupo 1*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*es para que haya 3 columnas y ocupen todo el ancho las 3 columnas */
+    grid-gap: 50px; /* es el margen entre cada columna*/ 
+    padding: 24px 0px; /*45 hacia arriba y 0 hacia los costados*/
+}
+.piepg .grupo1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.piepg .grupo1 .box figure img{
+    width: 250px;
+}
+.piepg .grupo1 .box h2{
+    color: rgb(0, 4, 7);
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.piepg .grupo1 .box p{
+    color: gray;
+    margin-bottom: 10px;
+}
+.piepg .grupo1 .box .redsocial a{
+    text-decoration: none;
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: white;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.piepg .grupo1 .box .redsocial a:hover{
+    color: #684949;
+}
+.piepg .grupo2{
+    background-color: rgb(0, 0, 0);
+    padding: 15px 10px;
+    text-align: center;
+    color: white;
+}
+.piepg .grupo2 small{
+    font-size: 15px;
+}
+.ftimglogo{
+    width: 150px;
+    height: 40px;
+}
+/*grid article*/
+.container-grid-article{
+    background-color: aqua;
+    margin: 30px;
+    width: 95%;
+    height: 500px;
+    outline: 4px solid;
+    display: grid;
+    /*nos ayuda a definir columnas*/
+    grid-template-columns:repeat(3, 1fr);
+}
+.element-grid{
+    text-align: center;
+    background-color: blue;
+    border: #684949 1px solid;
+}
+
+
+/*Responsive nav*/
+@media screen and (max-width:550px) {
+    .abrir-menu, .cerrar-menu{
+        display:block; /* para que se vean */
+        /*estilos de los iconos del menu*/
+        border: 0;
+        font-size: 1.25rem;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .abrir-menu{
+        color: black;
+    }
+    .cerrar-menu{
+        color: white;
+    }
+    .nav{
+        /*para que este oculto, y solo se abra al toca el button*/
+        opacity: 0;
+        visibility: hidden;
+        z-index: 2;
+    }
+    .nav{
+        display: flex; /*para poder alinear el button, usando flex column y alinitem end*/
+        flex-direction: column;
+        align-items: end;
+        gap: 1em;
+        position: absolute;
+        top:0; /* para que esten en la parte superior*/
+        bottom: 0;
+        right: 0; /*para que esten a la derecha*/ 
+        padding: 1.5rem;
+        background-color: rgb(27, 26, 26);
+        box-shadow: 0 0 0 100vmax rgb(0, 0, 0, .5); /*para añadir el shadow al abrir el menu desplegable*/
+    }
+    .nav.visible{
+        /*esta clase con jvs hace que se añada al nav para mostrarlo*/
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav-list{
+        flex-direction: column; /* para que con el display flex de navlist se pongan uno debajo del otro*/
+        align-items: end; /* hace que empiece el texto de la parte derecha*/
+    }
+    .nav-list li a{
+        color: aliceblue;
+    }
+
+}
+/*Responsive FOOTER*/
+@media screen and (max-width:768px){
+    .piepg .grupo1{
+        width: 90%; /*90% para que quede un margen a cada lado y quede mejor*/
+        grid-template-columns: repeat(1, 1fr); /*es para que haya 1 columnas y ocupen todo el ancho*/
+        grid-gap: 30px; /* es el margen entre cada columna*/ 
+        padding: 24px 0px; /*45 hacia arriba y 0 hacia los costados*/
+    }
+}
